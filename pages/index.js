@@ -6,7 +6,6 @@ import Steps from '../components/Steps'
 import Testimonials from '../components/Testimonial'
 import Footer from '../components/Footer'
 import WorksGallery from '../components/WorksGallery'
-
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {

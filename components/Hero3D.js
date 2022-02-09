@@ -1,28 +1,29 @@
 import React, { createRef, memo, useEffect } from "react";
-import styled from "styled-components";
 import Image from "next/image";
 import styles from "../styles/Hero3D.module.scss";
-
-import logo from "../images/logo.png";
-import heroBG from "../images/hero/main_bg.jpg";
+import heroBG from "../images/hero/main_bg.png";
 import heroMiddle from "../images/hero/tree.png";
 import heroFG from "../images/hero/left_right.png";
+import Hero from "./Hero";
+import PondBG from "./Hero3dComponents/PondBG";
 
-const Hero = memo(() => {
+
+const Hero3D = memo(() => {
 
   /**
    * 
    *  Parallax Config
    * 
-   */
+   */ 
 
   const parallaxLayerConfig = {
     scale: 1.1,
-    maxAngle: 6,
+    maxAngle: 180,
     layers: [
-      { img: heroBG, movement: 0.005 },
-      { img: heroMiddle, movement: 0.012 },
-      { img: heroFG, movement: 0.03 },
+      { html: ()=> <PondBG/>, movement: 0},
+      { img: heroBG, movement: 0.005, clickThrough: true },
+      { img: heroMiddle, movement: 0.012, clickThrough: true },
+      { img: heroFG, movement: 0.03, clickThrough: true },
     ]
   }
 
@@ -38,7 +39,7 @@ const Hero = memo(() => {
   }
   let frameRef = createRef();
   let containerRef = createRef();
-
+  
   /**
    * 
    *  Radial Parallax Methods
@@ -55,7 +56,9 @@ const Hero = memo(() => {
     if(subscribe) {
       containerRef.current.addEventListener("mousemove", onMouseMove);
     } else {
-      containerRef.current.removeEventListener("mousemove", onMouseMove);
+      if(containerRef.current) {
+        containerRef.current.removeEventListener("mousemove", onMouseMove);
+      }
     }
   }
 
@@ -68,19 +71,21 @@ const Hero = memo(() => {
 
   const updateLayerDOM = () => {
     parallaxLayerConfig.layers.forEach(layer=> {
+      if(!layer.ref.current) return;
       layer.ref.current.style.transform = calculateStyle(layer);
     })
   }
 
   const updateFrameDOM = () => {
+    if(!frameRef.current) return;
     frameRef.current.style.transform = "scale(" + parallaxLayerConfig.scale + 
-      ") perspective(1500px) rotateY(" + 
-      (mouseValue.x * parallaxLayerConfig.maxAngle) + "deg) rotateX(" + 
-      (mouseValue.y * -1 * parallaxLayerConfig.maxAngle) + "deg)";
+      ")";
   }
 
   const calculateStyle = layer => {
-    return "translate(" + (mouseValue.x * window.innerWidth * layer.movement) + "px, " + (mouseValue.y * window.innerHeight * layer.movement) + "px)";
+    return "translate(" + (mouseValue.x * window.innerWidth * layer.movement) + "px, " + (mouseValue.y * window.innerHeight * layer.movement) + "px) perspective(1500px) rotateY(" + 
+    (mouseValue.x * parallaxLayerConfig.maxAngle * layer.movement) + "deg) rotateX(" + 
+    (mouseValue.y * -1 * parallaxLayerConfig.maxAngle * layer.movement) + "deg)";
   }
 
   /**
@@ -94,6 +99,7 @@ const Hero = memo(() => {
   useEffect(()=> {
     subscribeTolistener();
     updateFrameDOM();
+
     return ()=> {
       subscribeTolistener(false);
     }
@@ -101,9 +107,15 @@ const Hero = memo(() => {
 
   const renderLayer = (layer, index) => {
     return (
-      <div class={styles.rp_layer} key={index} ref={layer.ref}>
-        <div class={styles.img_container}>
-          <Image src={layer.img}/>
+      <div class={styles.rp_layer_container} class={layer.clickThrough ? styles.clickThrough : {}}>
+        <div class={styles.rp_layer} key={index} ref={layer.ref} id={layer.id} >
+          <div class={styles.img_container}>
+            {layer.img ? (
+              <Image src={layer.img}/>
+            ) : layer.html ? (
+              <layer.html config={layer}/>
+            ) : ''}
+          </div>
         </div>
       </div>
     )
@@ -120,8 +132,11 @@ const Hero = memo(() => {
   return (
     <div class={styles.container} ref={containerRef}>
       {renderRadialParallax()}
+      <div class={styles.staticContainer} style={{ pointerEvents: 'none'}} >
+        <Hero/>
+      </div>
     </div>
   );
-}, ()=> true);
+}, ()=> true );
 
-export default Hero;
+export default Hero3D;
