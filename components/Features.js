@@ -57,7 +57,7 @@ const Features = () => {
       const lastItem = index === featureListItems.length - 1;
       return (
         <>
-          <div className={styles.btnWrap}>
+          <div className={styles.btnWrap} key={index}>
             <div id={feature.id} className={styles.selectbtnOuter}>
               <div
                 className={`${styles.selectBtnInner} ${
@@ -76,9 +76,9 @@ const Features = () => {
   const contentItem = () => {
     return featureListItems.map((feature, index) => {
       return (
-        <Link href="/indoors">
+        <Link href="/indoors"
+        key={index}>
           <div
-            key={index}
             className={`${styles.feature} ${
               feature.selected && styles.activeFeature
             }`}
@@ -119,7 +119,7 @@ const Features = () => {
     return featureList_mob.map((item, index) => {
       const isLeft = index % 2 === 0;
       return (
-        <div className={`${styles.image_section__item} ${isLeft ? styles.leftItem : styles.rightItem}`}>
+        <div key={index} className={`${styles.image_section__item} ${isLeft ? styles.leftItem : styles.rightItem}`}>
           <div className={styles.image_section__item_wrap}>
             <img
               src={`images/mob_features/${item.img}`}

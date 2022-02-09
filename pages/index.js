@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Hero from '../components/Hero'
+import Hero from '../components/Hero3D'
 import VideoEditorial from '../components/VideoEditorial'
 import Features from '../components/Features'
 import Steps from '../components/Steps'

@@ -42,9 +42,9 @@ const Testimonials = () => {
   };
 
   const customerFeedbacks = () => {
-    return feedbacks.map((feedback) => {
+    return feedbacks.map((feedback, key) => {
       return (
-        <div className={styles.feedbackItem}>
+        <div className={styles.feedbackItem} key={key}>
           <p className={styles.feedbackItem__comment}>{feedback.comments}</p>
 
           <div className={styles.feedbackItem__user}>

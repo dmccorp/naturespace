@@ -48,7 +48,7 @@ const stepList = [
 
 const stepItems = () => {
   return stepList.map((step, index) => {
-    return <StepItem  index={index} step={step} />
+    return <StepItem key={index} index={index} step={step} />
   });
 };
 
