@@ -1,0 +1,23 @@
+.header {
+  font-size: 53px;
+  line-height: 63px;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  color: #fff;
+  z-index: 1;
+  margin: 0;
+}
+
+.header__stroke {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0);
+}
+
+@media (max-width: 767px) {
+  .header {
+    font-size: 33px;
+    line-height: 39px;
+  }
+}

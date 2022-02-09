@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: #1c2a1e;
+    padding-bottom: 200px;
+    margin: auto;
+}
+
+.content{
+    max-width: 1350px;
+    margin: auto;
+}
+
+.header_wrap{
+    padding-bottom: 115px;
+}
+
+.imgGalleryHeader{
+    margin-bottom: 100px;
+}

@@ -1,0 +1,7 @@
+.slick-slider.slick-initialized{
+    padding-bottom: 100px;
+  }
+  
+  .slick-dots li.slick-active button:before{
+    color: red !important;
+  }

@@ -1,0 +1,36 @@
+@font-face {
+  font-family: kameric;
+  src: url(../fonts/kamerik-105.rar);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: kameric, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #1c2a1e;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* slick carousel */
+
+.slick-slider.slick-initialized{
+  padding-bottom: 100px;
+
+  @media(max-width: 767px){
+    padding-bottom: 80px;
+  }
+}
+
+.slick-dots li.slick-active button:before{
+  color: #24CF7D !important;
+}
