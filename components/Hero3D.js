@@ -6,6 +6,7 @@ import heroMiddle from "../images/hero/tree.png";
 import heroFG from "../images/hero/left_right.png";
 import Hero from "./Hero";
 import PondBG from "./Hero3dComponents/PondBG";
+import Snowfall from 'react-snowfall'
 
 
 const Hero3D = memo(() => {
@@ -18,12 +19,14 @@ const Hero3D = memo(() => {
 
   const parallaxLayerConfig = {
     scale: 1.1,
-    maxAngle: 180,
+    maxAngle: 240,
+    animationEase: 10,
     layers: [
       { html: ()=> <PondBG/>, movement: 0},
       { img: heroBG, movement: 0.005, clickThrough: true },
       { img: heroMiddle, movement: 0.012, clickThrough: true },
-      { img: heroFG, movement: 0.03, clickThrough: true },
+      { img: heroFG, movement: 0.035, clickThrough: true },
+      { html: ()=> ( <Snowfall snowflakeCount={30} color="rgba(255,255,255,0.3)"/> ), movement: 0.4, clickThrough: true },
     ]
   }
 
@@ -65,14 +68,12 @@ const Hero3D = memo(() => {
   const onMouseMove = event => {
     mouseValue.x = (event.x-(window.innerWidth/2))/window.innerWidth;
     mouseValue.y = (event.y-(window.innerHeight/2))/window.innerHeight;
-    updateLayerDOM();
-    updateFrameDOM();
   }
 
   const updateLayerDOM = () => {
     parallaxLayerConfig.layers.forEach(layer=> {
       if(!layer.ref.current) return;
-      layer.ref.current.style.transform = calculateStyle(layer);
+      layer.ref.current.style.transform = calculateStyle(layer, layer.ref.current);
     })
   }
 
@@ -82,10 +83,53 @@ const Hero3D = memo(() => {
       ")";
   }
 
-  const calculateStyle = layer => {
-    return "translate(" + (mouseValue.x * window.innerWidth * layer.movement) + "px, " + (mouseValue.y * window.innerHeight * layer.movement) + "px) perspective(1500px) rotateY(" + 
-    (mouseValue.x * parallaxLayerConfig.maxAngle * layer.movement) + "deg) rotateX(" + 
-    (mouseValue.y * -1 * parallaxLayerConfig.maxAngle * layer.movement) + "deg)";
+  const calculateStyle =( layer )=> {
+    layer.prevTransform = layer.nextTransform || {
+      transform: {
+        x: 0,
+        y: 0
+      },
+      rotate: {
+        x: 0,
+        y: 0
+      }
+    }
+    layer.absoluteTransform = {
+      transform: {
+        x: mouseValue.x * window.innerWidth * layer.movement,
+        y: mouseValue.y * window.innerHeight * layer.movement
+      },
+      rotate: {
+        x: mouseValue.y * -1 * parallaxLayerConfig.maxAngle * layer.movement,
+        y: mouseValue.x * parallaxLayerConfig.maxAngle * layer.movement
+      }
+    }
+    layer.nextTransform = {
+      transform: {
+        x: layer.prevTransform.transform.x + ((layer.absoluteTransform.transform.x - layer.prevTransform.transform.x) / parallaxLayerConfig.animationEase),
+        y: layer.prevTransform.transform.y + ((layer.absoluteTransform.transform.y - layer.prevTransform.transform.y) / parallaxLayerConfig.animationEase)
+      },
+      rotate: {
+        x: layer.prevTransform.rotate.x + ((layer.absoluteTransform.rotate.x - layer.prevTransform.rotate.x) / parallaxLayerConfig.animationEase),
+        y: layer.prevTransform.rotate.y + ((layer.absoluteTransform.rotate.y - layer.prevTransform.rotate.y) / parallaxLayerConfig.animationEase),
+      }
+    }
+    return "translate(" + layer.nextTransform.transform.x + "px, " + 
+    layer.nextTransform.transform.y + "px) perspective(1500px) rotateY(" + 
+    layer.nextTransform.rotate.y + "deg) rotateX(" + 
+    layer.nextTransform.rotate.x + "deg)";
+  }
+
+  /**
+   * 
+   *  Main loop
+   * 
+   */
+
+  const startMainLoop =()=> {
+    updateLayerDOM();
+    updateFrameDOM();
+    requestAnimationFrame(startMainLoop);
   }
 
   /**
@@ -98,8 +142,7 @@ const Hero3D = memo(() => {
 
   useEffect(()=> {
     subscribeTolistener();
-    updateFrameDOM();
-
+    startMainLoop();
     return ()=> {
       subscribeTolistener(false);
     }

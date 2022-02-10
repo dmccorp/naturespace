@@ -7,6 +7,7 @@ import Testimonials from '../components/Testimonial'
 import Footer from '../components/Footer'
 import WorksGallery from '../components/WorksGallery'
 import styles from '../styles/Home.module.scss'
+import LoadingComponent from '../components/LoadingComponent'
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Testimonials />
         <Footer />
       </main>
+      <LoadingComponent/>
     </div>
   )
 }
