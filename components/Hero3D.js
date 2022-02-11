@@ -1,12 +1,13 @@
 import React, { createRef, memo, useEffect } from "react";
 import Image from "next/image";
 import styles from "../styles/Hero3D.module.scss";
-import heroBG from "../images/hero/main_bg.png";
-import heroMiddle from "../images/hero/tree.png";
-import heroFG from "../images/hero/left_right.png";
+import heroBG from "../images/hero/main_bg_blur.png";
+import heroMiddle from "../images/hero/tree_blur.png";
+import heroFG from "../images/hero/left_right_blur.png";
 import Hero from "./Hero";
 import PondBG from "./Hero3dComponents/PondBG";
 import Snowfall from 'react-snowfall'
+import Butterflies from "./Hero3dComponents/Butterflies";
 
 
 const Hero3D = memo(() => {
@@ -18,15 +19,16 @@ const Hero3D = memo(() => {
    */ 
 
   const parallaxLayerConfig = {
-    scale: 1,
+    scale: 1.1,
     maxAngle: 240,
     animationEase: 10,
     layers: [
-      { html: ()=> <PondBG/>, movement: 0},
+      { html: ()=> <PondBG/>, movement: 0.005},
       { img: heroBG, movement: 0.005, clickThrough: true },
       { img: heroMiddle, movement: 0.012, clickThrough: true },
       { img: heroFG, movement: 0.035, clickThrough: true },
       { html: ()=> ( <Snowfall snowflakeCount={30} color="rgba(255,255,255,0.3)"/> ), movement: 0.4, clickThrough: true },
+      { html: ()=> ( <Butterflies/> ), movement: 0.1, clickThrough: true },
     ]
   }
 
@@ -143,6 +145,23 @@ const Hero3D = memo(() => {
   useEffect(()=> {
     subscribeTolistener();
     startMainLoop();
+
+    // Dummy Loading
+
+
+    setTimeout(()=> {
+      window.updateProgress(20 + (Math.random() * 10));
+    }, 1500);
+
+    setTimeout(()=> {
+      window.updateProgress(40 + (Math.random() * 40));
+    }, 1500 + (Math.random() * 2000));
+
+
+    setTimeout(()=> {
+      window.updateProgress(100);
+    }, 3000 + (Math.random() * 1500));
+
     return ()=> {
       subscribeTolistener(false);
     }

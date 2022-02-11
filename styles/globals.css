@@ -10,7 +10,9 @@ body {
   font-family: kameric, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     background-color: #1c2a1e;
+    overflow: hidden;
 }
+
 
 a {
   color: inherit;

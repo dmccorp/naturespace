@@ -7,7 +7,9 @@ const loadJQ = () => {
     const $ = require('jquery');
     // require("jquery.ripples");
     require("./jq.ripples");
-
+    setTimeout(()=> {
+        window.updateProgress(10 + (Math.random() * 10));
+    })
 
     const randomDrop =()=> {
         var $el = $('#HERO');

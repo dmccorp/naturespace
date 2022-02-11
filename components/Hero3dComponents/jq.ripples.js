@@ -756,8 +756,8 @@ Ripples.prototype = {
 				borderTop = parseInt(this.$el.css('border-top-width')) || 0;
 
 		this.drop(
-			(pointer.pageX - this.$el.offset().left - borderLeft) / 1.5,
-			(pointer.pageY - this.$el.offset().top - borderTop) * 4 / 1.5,
+			(pointer.pageX - this.$el.offset().left - borderLeft) / 1.5 / 1.1,
+			(pointer.pageY - this.$el.offset().top - borderTop) * 4 / 1.5 / 1.1,
 			radius,
 			strength
 		);
