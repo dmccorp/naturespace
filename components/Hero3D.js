@@ -18,7 +18,7 @@ const Hero3D = memo(() => {
    */ 
 
   const parallaxLayerConfig = {
-    scale: 1.1,
+    scale: 1,
     maxAngle: 240,
     animationEase: 10,
     layers: [

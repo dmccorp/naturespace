@@ -57,12 +57,14 @@
 
 .pondContainer {
     display: block;
-    width: 100%;
+    width: 50%;
+    left: 10%;
+    top: 25%;
     height: 100%;
     position: relative;
-    transform: scale(1,0.36) translateY(86%);
+    transform: scale(1,0.25);
     canvas {
-        aspect-ratio: 3.3;
+        // aspect-ratio: 3.3;
         height: 150vh;
     }
 }
@@ -71,3 +73,6 @@
     pointer-events: none;
 }
  
+.loadingComponent {
+
+}

@@ -1,11 +1,12 @@
 import styles from "../../styles/Hero3D.module.scss";
-import heroBG from "../../images/hero/main_bg_water.png";
+import heroBG from "../../images/hero/water2.png";
 import { useEffect } from "react";
 
 
 const loadJQ = () => {
     const $ = require('jquery');
-    require("jquery.ripples");
+    // require("jquery.ripples");
+    require("./jq.ripples");
 
 
     const randomDrop =()=> {
@@ -13,26 +14,26 @@ const loadJQ = () => {
         var x = Math.random() * $el.outerWidth();
         var y = Math.random() * $el.outerHeight();
         var dropRadius = 15;
-        var strength = 0.04 + Math.random() * 0.04;
+        var strength = 0.0004 + Math.random() * 0.0004;
         $el.ripples('drop', x, y, dropRadius, strength);
     };
 
     $('#HERO').ripples({
     imageUrl: heroBG.src,
-    resolution: 1280,
-    dropRadius: 15, //px
+    resolution: 128,
+    dropRadius: 35, //px
     perturbance: 0.5,
-    interactive: false
+    // interactive: false
     });
         // Automatic drops
-    setInterval(function() {
-        randomDrop();
-    }, 700);
+    // setInterval(function() {
+    //     randomDrop();
+    // }, 700);
 
-    randomDrop();
+    // randomDrop();
 
 
-    for(let idx=0; idx<100; idx++) randomDrop();
+    for(let idx=0; idx<10; idx++) randomDrop();
   }
 
 export default ()=> {
