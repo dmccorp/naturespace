@@ -1,12 +1,14 @@
 import React from "react";
 import Link from "next/link";
+import { HorizontalImageItem } from "./HorizontalImageItem";
 import styles from "../styles/WorksGallery.module.scss";
 
 const WorksGallery = (props) => {
   const {
-    img1 = "works/work_1.png",
-    img3 = "works/work_2.png",
-    img5 = "works/work_3.png",
+    img1 = "portfolio/1.jpg",
+    img2 = "portfolio/2.jpg",
+    img3 = "portfolio/3.jpg",
+    img4 = "portfolio/4.jpg",
   } = props;
 
   return (
@@ -31,7 +33,7 @@ const WorksGallery = (props) => {
           <Link href="/ourworks">
             <div className={styles.side__2}>
               <img
-                src={`images/${img3}`}
+                src={`images/${img2}`}
                 alt="Gallery image 2"
                 className={`${styles.galleryWrap__img} ${styles.side__img2}`}
               />
@@ -43,7 +45,7 @@ const WorksGallery = (props) => {
           <Link href="/ourworks">
             <div className={styles.bottomSec__2}>
               <img
-                src={`images/${img5}`}
+                src={`images/${img4}`}
                 alt="Gallery image 1"
                 className={`${styles.galleryWrap__img} ${styles.bottomSec__img2}`}
               />
@@ -58,60 +60,12 @@ const WorksGallery = (props) => {
       </div>
 
       <div className={styles.galleryWrapMobile}>
-      <h2 className={styles.header}>
+        <h2 className={styles.header}>
           <div className={styles.underline} />
           Our exquisite <span className={styles.header_sub}>works</span>
         </h2>
-        <div className={`${styles.galleryWrapMobile__imgWrap}`}>
-          <div className={styles.imgLarge}>
-            <img
-              src={`images/${img1}`}
-              alt="Gallery image 1"
-              className={styles.imgLarge}
-            />
-          </div>
-          <div className={styles.imgSmall}>
-            <img
-              src={`images/${img3}`}
-              alt="Gallery image 1"
-              className={styles.imgSmall}
-            />
-          </div>
-        </div>
-        <div
-          className={`${styles.galleryWrapMobile__imgWrap} ${styles.galleryWrapMobile__reverse}`}
-        >
-           <div className={styles.imgLarge}>
-            <img
-              src={`images/${img1}`}
-              alt="Gallery image 1"
-              className={styles.imgLarge}
-            />
-          </div>
-          <div className={styles.imgSmall}>
-            <img
-              src={`images/${img3}`}
-              alt="Gallery image 1"
-              className={styles.imgSmall}
-            />
-          </div>
-        </div>
-        <div className={`${styles.galleryWrapMobile__imgWrap}`}>
-        <div className={styles.imgLarge}>
-            <img
-              src={`images/${img1}`}
-              alt="Gallery image 1"
-              className={styles.imgLarge}
-            />
-          </div>
-          <div className={styles.imgSmall}>
-            <img
-              src={`images/${img3}`}
-              alt="Gallery image 1"
-              className={styles.imgSmall}
-            />
-          </div>
-        </div>
+        <HorizontalImageItem imgLarge={img1} imgSmall={img2}/>
+        <HorizontalImageItem imgLarge={img3} imgSmall={img4} isReverse={true}/>
 
         <div className={`${styles.btnExplore} ${styles.gallery__item__4}`}>
           <Link href="/ourworks">
@@ -119,6 +73,8 @@ const WorksGallery = (props) => {
           </Link>
         </div>
       </div>
+
+
     </section>
   );
 };

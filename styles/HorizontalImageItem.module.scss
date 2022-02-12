@@ -1,0 +1,36 @@
+.imageGallery {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  
+    display: flex;
+    flex-direction: column;
+    // padding: 0 34px;
+    align-items: center;
+  
+    &__imgWrap {
+      display: flex;
+      margin-bottom: 8px;
+    }
+  
+    &__reverse {
+      flex-direction: row-reverse;
+    }
+  
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .imgLarge {
+      margin-right: 4px;
+      margin-left: 4px;
+      flex: 1.5;
+    }
+  
+    .imgSmall {
+      margin-right: 4px;
+      margin-left: 4px;
+      flex: 1;
+    }
+  }

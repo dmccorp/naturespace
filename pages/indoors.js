@@ -21,7 +21,7 @@ const Indoors = () => {
           <PageHeader header="Our exquisite" stroke=" garden" />
         </div>
         <ImageEditor />
-        <PlantsGallery />
+        {/* <PlantsGallery /> */}
         <div className={styles.imgGalleryHeader}>
           <PageHeader header="Our exquisite" stroke=" garden" />
         </div>
