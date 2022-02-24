@@ -21,7 +21,6 @@ export default function OurWorks() {
       </div>
       
       <ImageGallery />
-      <ImageGallery />
     </section>
   );
 }

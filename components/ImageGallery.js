@@ -1,51 +1,20 @@
 import React from "react";
+import { HorizontalImageItem } from "./HorizontalImageItem";
 import styles from "../styles/ImageGallery.module.scss";
 
 const ImageGallery = (props) => {
   const {
-    img1 = "works/work_1.png",
-    img2 = "works/work_4.png",
-    img3 = "works/work_2.png",
-    img4 = "works/work_5.png",
+    img1 = "portfolio/1.jpg",
+    img2 = "portfolio/2.jpg",
+    img3 = "portfolio/3.jpg",
+    img4 = "portfolio/4.jpg",
     img5 = "works/work_3.png",
   } = props;
   return (
     <div className={styles.ImageGallery}>
       <div className={styles.galleryWrapMobile}>
-        <div className={`${styles.galleryWrapMobile__imgWrap}`}>
-          <div className={styles.imgLarge}>
-            <img
-              src={`images/${img1}`}
-              alt="Gallery image 1"
-              className={styles.imgLarge}
-            />
-          </div>
-          <div className={styles.imgSmall}>
-            <img
-              src={`images/${img3}`}
-              alt="Gallery image 1"
-              className={styles.imgSmall}
-            />
-          </div>
-        </div>
-        <div
-          className={`${styles.galleryWrapMobile__imgWrap} ${styles.galleryWrapMobile__reverse}`}
-        >
-          <div className={styles.imgLarge}>
-            <img
-              src={`images/${img1}`}
-              alt="Gallery image 1"
-              className={styles.imgLarge}
-            />
-          </div>
-          <div className={styles.imgSmall}>
-            <img
-              src={`images/${img3}`}
-              alt="Gallery image 1"
-              className={styles.imgSmall}
-            />
-          </div>
-        </div>
+        <HorizontalImageItem imgLarge={img1} imgSmall={img2} />
+        <HorizontalImageItem imgLarge={img3} imgSmall={img4} isReverse={true} />
       </div>
 
       <div className={styles.galleryWrap}>
@@ -82,7 +51,7 @@ const ImageGallery = (props) => {
           </div>
           <div className={styles.bottomSec__2}>
             <img
-              src={`images/${img5}`}
+              src={`images/${img4}`}
               alt="Gallery image 1"
               className={`${styles.galleryWrap__img} ${styles.bottomSec__img2}`}
             />

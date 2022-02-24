@@ -36,7 +36,7 @@ const StepItem = ({ index, step }) => {
           <div
             className={styles.stepItem__img}
             style={{
-              backgroundImage: `linear-gradient(rgb(22 20 20 / 80%), rgb(22 20 20 / 80%)), url(images/${step.imgSrc})`,
+              backgroundImage: `linear-gradient(rgb(22 20 20 / 60%), rgb(22 20 20 / 60%)), url(images/${step.imgSrc})`,
             }}
           >
             <div

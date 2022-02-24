@@ -16,7 +16,7 @@ const stepList = [
     title: "3D Designing",
     description:
       "It is a long established fact t hat a will be distracted by the readable",
-    imgSrc: "steps/brainstorming.png",
+    imgSrc: "steps/3dDesign.png",
     icon: "steps/icon2.png",
   },
   {
@@ -24,7 +24,7 @@ const stepList = [
     title: "Planting",
     description:
       "It is a long established fact t hat a will be distracted by the readable",
-    imgSrc: "steps/brainstorming.png",
+    imgSrc: "steps/planting.png",
     icon: "steps/icon3.png",
   },
   {
@@ -32,16 +32,16 @@ const stepList = [
     title: "Automation",
     description:
       "It is a long established fact t hat a will be distracted by the readable",
-    imgSrc: "steps/brainstorming.png",
-    icon: "steps/icon3.png",
+    imgSrc: "steps/automation.png",
+    icon: "steps/icon4.png",
   },
   {
     stepNumber: "05",
     title: "Maintanence",
     description:
       "It is a long established fact t hat a will be distracted by the readable",
-    imgSrc: "steps/brainstorming.png",
-    icon: "steps/icon3.png",
+    imgSrc: "steps/maintanence.png",
+    icon: "steps/icon5.png",
   },
 ];
 
