@@ -9,6 +9,7 @@ export default ()=> {
                 setTimeout(()=> {
                     document.getElementsByTagName("html")[0].style.overflow = "auto"
                 }, 1500);
+                window.updateProgress = () => {};
             }
             updateProgress(_progress);
         }

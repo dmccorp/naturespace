@@ -1,176 +1,205 @@
-.main{
-    display: flex;
-    color: rgb(224, 214, 214);
-    flex-direction: column;
-    align-items: center;
-    z-index: -2;
+.main {
+  display: flex;
+  color: rgb(224, 214, 214);
+  flex-direction: column;
+  align-items: center;
+  z-index: -2;
 }
 
-.bg_text{
-    color: #fdf9f905;
-    position: absolute;
-    font-size: 600px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: left;
+.bg_text {
+  color: #fdf9f905;
+  position: absolute;
+  font-size: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
 }
 
-.content{
+.content {
+  width: 100%;
+  align-self: flex-end;
+  height: 374px;
+  margin-top: 200px;
+  position: relative;
+}
+
+.content_desktop {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 200px;
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.feature {
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  width: 350px;
+  float: left;
+  position: absolute;
+  transition: 1s;
+  .feature_image {
     width: 70%;
-    align-self: flex-end;
-    height: 374px;
-    margin-top: 200px;
-    display: flex;
-}
-
-.feature{
-    flex-direction: column;
+    height: auto;
+    margin-left: 15%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .feature_description {
+    display: block;
+    font-weight: 700;
+    font-size: 33px;
+    width: 30%;
+    margin-top: -50px;
     position: relative;
-    overflow: hidden;
-    cursor: pointer;
+    z-index: 10;
+  }
 }
 
-.activeFeature{
-    color: red;
+.activeFeature {
+  // color: red;
 }
 
-.progressbar{
-    margin-top: 190px;
-    display: flex;
-    margin-bottom: 80px;
-    align-items: center;
-    margin-left: 200px;
-    align-self: flex-start;
+.progressbar {
+  margin-top: 190px;
+  display: flex;
+  margin-bottom: 80px;
+  align-items: center;
+  margin-left: 200px;
+  align-self: flex-start;
 }
 
-.selectbtnOuter{
-    height: 23px;
-    width: 23px;
-    background-color: #17762c;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.selectbtnOuter {
+  height: 23px;
+  width: 23px;
+  background-color: #17762c;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hr{
-    width: 177px;
-    height: 4px;
-    background-color: #1f7622;
+.hr {
+  width: 177px;
+  height: 4px;
+  background-color: #1f7622;
 }
 
-.selectBtnInner{
-    background-color: #6bbb7666;
-    height: 13px;
-    width: 13px;
-    border-radius: 50%;
+.selectBtnInner {
+  background-color: #6bbb7666;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
 }
 
-.activeBtn{
-    background-color: #6BBB76;
+.activeBtn {
+  background-color: #6bbb76;
 }
 
-.arrowWrap{
-    margin-left: 70px;
+.arrowWrap {
+  margin-left: 70px;
+  cursor: pointer;
 }
 
 .arrow {
-    border: solid #fff;
-    border-width: 0 6px 6px 0;
-    display: inline-block;
-    padding: 8px;
-  }
-  
-  .right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-  }
-  
-  .left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
+  border: solid rgba(255,255,255,0.8);
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 8px;
+}
+.arrow:hover{
+  border-color: #fff;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.btnWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.content_mobile {
+  @media (min-width: 768px) {
+    display: none;
   }
 
-  .btnWrap{
+  width: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.header {
+  font-size: 33px;
+  line-height: 40px;
+  font-weight: 700;
+  margin-top: 65px;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.underline {
+  position: absolute;
+  background: #137c4a;
+  height: 0.5rem;
+  width: 6.2rem;
+  z-index: -1;
+  bottom: 4px;
+  right: 0;
+}
+
+.header_sub {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0);
+}
+
+.image_section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  &__item {
+    display: flex;
+    margin-top: 38px;
+    margin-bottom: 38px;
+    &_wrap {
       display: flex;
       flex-direction: column;
-  }
-
-  .content_desktop{
-     @media(max-width: 767px){
-         display: none;
-     }
-  }
-
-
-  .content_mobile{
-    @media(min-width: 768px){
-        display: none;
     }
 
-    width: 100%;
-    padding-left: 3rem;
-    padding-right: 3rem;
- }
-
-
- .header {
-    font-size: 33px;
-    line-height: 40px;
-    font-weight: 700;
-    margin-top: 65px;
-    text-align: center;
-    z-index: 2;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
+    &_title {
+      margin-top: 15px;
+      font-size: 19px;
+      line-height: 23px;
+      font-weight: 700;
+      text-align: center;
+    }
   }
-  
-  .underline {
-    position: absolute;
-    background: #137c4a;
-    height: 0.5rem;
-    width: 6.2rem;
-    z-index: -1;
-    bottom: 4px;
-    right: 0;
-  }
-  
-  .header_sub {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgb(255, 255, 255);
-    color: rgba(255, 255, 255, 0);
-  }
-  
+}
 
-
-  .image_section{
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 40px;
-
-      &__item{
-
-        display: flex;
-        margin-top: 38px;
-        margin-bottom: 38px;
-        &_wrap{
-            display: flex;
-            flex-direction: column;
-        }
-
-        &_title{
-            margin-top: 15px;
-            font-size: 19px;
-            line-height: 23px;
-            font-weight: 700;
-            text-align: center;
-        }
-      }
-  }
-
-  .rightItem{
-      justify-content: right;
-  }
+.rightItem {
+  justify-content: right;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import indoor from "../images/indoor.png";
@@ -21,6 +21,11 @@ const featureList = [
     },
     {
       id: 3,
+      text: "Wall garden",
+      img: "wall.png",
+    },
+    {
+      id: 4,
       text: "Landscaping",
       img: outdoor,
       selected: false,
@@ -51,6 +56,15 @@ const featureList = [
 
 const Features = () => {
   const [featureListItems, setFeatureList] = useState(featureList);
+  const [windowAvailable, updateWindowAvailable] = useState(false);
+
+
+  useEffect(()=> {
+    setTimeout(()=> {
+      // window.updateProgress(100);
+    }, 100);
+    updateWindowAvailable(true);
+  }, []);
 
   const progressBarItems = () => {
     return featureListItems.map((feature, index) => {
@@ -74,7 +88,18 @@ const Features = () => {
   };
 
   const contentItem = () => {
+    let width = window.innerWidth / 5;
+    let selectedIndex = featureListItems.map((d,i)=>({d,i})).filter(d=>d.d.selected)[0].i
+    let offset = ((window.innerWidth - width) / 2) - (selectedIndex * width);
     return featureListItems.map((feature, index) => {
+      let isLeft = index < selectedIndex;
+      let style = {
+        left: (offset + (index * width)) + 'px', 
+        top: (feature.selected || isLeft) ? '50px' : 0, 
+        width: width + 'px',
+        opacity: 1 + ((selectedIndex - index) * -0.4),
+        transform: isLeft ? "scale(0.8)" : ""
+      }
       return (
         <Link href="/indoors"
         key={index}>
@@ -82,9 +107,12 @@ const Features = () => {
             className={`${styles.feature} ${
               feature.selected && styles.activeFeature
             }`}
+            style={style}
           >
-            <Image src={indoor} alt={feature.text} height="270" width="270" />
-            <span className={styles.description}>{feature.text}</span>
+            <div className={styles.feature_image}>
+              <Image src={indoor} alt={feature.text}/>
+            </div>
+            <span className={styles.feature_description}>{feature.text}</span>
           </div>
         </Link>
       );
@@ -133,7 +161,7 @@ const Features = () => {
     });
   };
 
-  return (
+  return windowAvailable && (
     <div className={styles.main}>
       <div className={styles.content_desktop}>
         <div className={styles.content}>{contentItem()}</div>
