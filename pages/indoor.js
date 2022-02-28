@@ -28,9 +28,6 @@ const Indoor = () => {
         stroke='gardening'
         />
         {/* <PlantsGallery /> */}
-        <div className={styles.imgGalleryHeader}>
-          <PageHeader header="Our exquisite" stroke=" garden" />
-        </div>
         <ImageGallery />
       </div>
     </section>

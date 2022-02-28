@@ -27,9 +27,6 @@ const Automation = () => {
           description="Our advanced automation system powered by AI will maintain your garden better than any gardner, while you can monitor everything with your smartphone."
           header="Automation"
         />
-        <div className={styles.imgGalleryHeader}>
-          <PageHeader header="Our exquisite" stroke=" garden" />
-        </div>
         <ImageGallery />
       </div>
     </section>

@@ -22,9 +22,9 @@ const WorksGallery = (props) => {
               className={styles.galleryWrap__img}
             />
           </Link>
-          <div className={styles.textWrap} style={{ display: "none" }}>
+          <div className={styles.textWrap}>
           </div>
-          <h2 style={{ display: "none" }}>
+          <h2>
             Our exquisite <span>works</span>
           </h2>
         </div>

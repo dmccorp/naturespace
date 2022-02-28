@@ -28,9 +28,6 @@ const Landscaping = () => {
           and budget, all the way from outdoor personal forest to a mini garden in the living room."
           header="Landscaping"
         />
-        <div className={styles.imgGalleryHeader}>
-          <PageHeader header="Our exquisite" stroke=" garden" />
-        </div>
         <ImageGallery />
       </div>
     </section>

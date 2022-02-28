@@ -59,6 +59,8 @@ const Features = () => {
                 }`}
               />
             </div>
+
+            <span className={styles.btnText}>{feature.text}</span>
           </div>
 
           {!lastItem && <div className={styles.hr} />}

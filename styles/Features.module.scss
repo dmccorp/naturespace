@@ -63,11 +63,13 @@
     margin-top: -50px;
     position: relative;
     z-index: 10;
-  }
-}
 
-.activeFeature {
-  // color: red;
+    @media(min-width: 768px) and (max-width: 1400px){
+     font-size: 18px;
+     font-weight: 400;
+     line-height: 24px;
+    }
+  }
 }
 
 .progressbar {
@@ -77,6 +79,11 @@
   align-items: center;
   margin-left: 200px;
   align-self: flex-start;
+
+  @media(min-width: 768px) and (max-width: 1400px){
+    margin-top: 50px;
+    margin-left: 20px;
+  }
 }
 
 .selectbtnOuter {
@@ -134,6 +141,13 @@
 .btnWrap {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.btnText{
+  position: absolute;
+  bottom: -45px;
+  white-space: nowrap;
 }
 
 
