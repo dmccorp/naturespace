@@ -14,7 +14,7 @@ export default function Home() {
     <div>
       <Head>
         <title>naturespace</title>
-        <meat name="keywords" content="interior, home interior, gardening, landscape, nature" />
+        <meat name="keywords" content="interior, home interior, gardening, landscape, nature, indoor gardening, outdoor gardening, automation, landscaping" />
       </Head>
       <main className={styles.main}>
         <Hero />

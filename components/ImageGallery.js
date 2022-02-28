@@ -8,7 +8,7 @@ const ImageGallery = (props) => {
     img2 = "portfolio/2.jpg",
     img3 = "portfolio/3.jpg",
     img4 = "portfolio/4.jpg",
-    img5 = "works/work_3.png",
+    img7 = "portfolio/7.jpg",
   } = props;
   return (
     <div className={styles.ImageGallery}>
@@ -21,7 +21,7 @@ const ImageGallery = (props) => {
         <div className={styles.main}>
           <img
             src={`images/${img1}`}
-            alt="Gallery image 1"
+            alt="works1"
             className={styles.galleryWrap__img}
           />
         </div>
@@ -29,14 +29,14 @@ const ImageGallery = (props) => {
           <div className={styles.side__1}>
             <img
               src={`images/${img2}`}
-              alt="Gallery image 1"
+              alt="works2"
               className={`${styles.galleryWrap__img} ${styles.side__img1}`}
             />
           </div>
           <div className={styles.side__2}>
             <img
               src={`images/${img3}`}
-              alt="Gallery image 1"
+              alt="works3"
               className={`${styles.galleryWrap__img} ${styles.side__img2}`}
             />
           </div>
@@ -45,14 +45,14 @@ const ImageGallery = (props) => {
           <div className={styles.bottomSec__1}>
             <img
               src={`images/${img4}`}
-              alt="Gallery image 1"
+              alt="works4"
               className={`${styles.galleryWrap__img} ${styles.bottomSec__img1}`}
             />
           </div>
           <div className={styles.bottomSec__2}>
             <img
-              src={`images/${img4}`}
-              alt="Gallery image 1"
+              src={`images/${img7}`}
+              alt="works5"
               className={`${styles.galleryWrap__img} ${styles.bottomSec__img2}`}
             />
           </div>

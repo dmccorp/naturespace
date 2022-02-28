@@ -7,7 +7,7 @@ const stepList = [
     stepNumber: "01",
     title: "Brainstorming",
     description:
-      "It is a long established fact t hat a will be distracted by the readable",
+      "The first step is understanding the clients requirments.",
     imgSrc: "steps/brainstorming.png",
     icon: "steps/icon1.png",
   },
@@ -15,7 +15,7 @@ const stepList = [
     stepNumber: "02",
     title: "3D Designing",
     description:
-      "It is a long established fact t hat a will be distracted by the readable",
+      "The place where our imagination takes shape.",
     imgSrc: "steps/3dDesign.png",
     icon: "steps/icon2.png",
   },
@@ -23,7 +23,7 @@ const stepList = [
     stepNumber: "03",
     title: "Planting",
     description:
-      "It is a long established fact t hat a will be distracted by the readable",
+      "Implimenting the perfect landscape for your needs.",
     imgSrc: "steps/planting.png",
     icon: "steps/icon3.png",
   },
@@ -31,7 +31,7 @@ const stepList = [
     stepNumber: "04",
     title: "Automation",
     description:
-      "It is a long established fact t hat a will be distracted by the readable",
+      "Taken care by our fully autonoumous end to end system.",
     imgSrc: "steps/automation.png",
     icon: "steps/icon4.png",
   },
@@ -39,7 +39,7 @@ const stepList = [
     stepNumber: "05",
     title: "Maintanence",
     description:
-      "It is a long established fact t hat a will be distracted by the readable",
+      "Frequent maintanence for longlasting everlush gardens.",
     imgSrc: "steps/maintanence.png",
     icon: "steps/icon5.png",
   },

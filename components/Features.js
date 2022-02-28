@@ -1,58 +1,38 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import indoor from "../images/indoor.png";
-import outdoor from "../images/outdoor.png";
 
 import styles from "../styles/Features.module.scss";
 
 const featureList = [
     {
       id: 1,
-      text: "Indoor Gargening",
-      img: indoor,
+      text: "Indoor gardening",
       selected: true,
-    },
-    {
-      id: 2,
-      text: "Outdoor Gargening",
-      img: outdoor,
-      selected: false,
-    },
-    {
-      id: 3,
-      text: "Wall garden",
-      img: "wall.png",
-    },
-    {
-      id: 4,
-      text: "Landscaping",
-      img: outdoor,
-      selected: false,
-    },
-  ],
-  featureList_mob = [
-    {
-      id: 1,
-      text: "Indoor Gargening",
+      href:'indoor',
       img: "indoor.png",
     },
     {
       id: 2,
-      text: "Landscaping",
-      img: "landscape.png",
+      text: "Outdoor gardening",
+      selected: false,
+      href:'outdoor',
+      img: "outdoor.png",
     },
     {
       id: 3,
-      text: "Wall garden",
-      img: "wall.png",
+      text: "Landscaping",
+      selected: false,
+      href:'landscaping',
+      img: "landscaping.png",
     },
     {
       id: 4,
-      text: "Outdoor Gargening",
-      img: "outdoor.png",
+      text: "Automation",
+      href:'automation',
+      img: 'automation.png'
     },
-  ];
+  ]
 
 const Features = () => {
   const [featureListItems, setFeatureList] = useState(featureList);
@@ -101,7 +81,7 @@ const Features = () => {
         transform: isLeft ? "scale(0.8)" : ""
       }
       return (
-        <Link href="/indoors"
+        <Link href={`/${feature.href}`}
         key={index}>
           <div
             className={`${styles.feature} ${
@@ -110,7 +90,7 @@ const Features = () => {
             style={style}
           >
             <div className={styles.feature_image}>
-              <Image src={indoor} alt={feature.text}/>
+              <img src={`images/desktop_features/${feature.img}`} alt={feature.text}/>
             </div>
             <span className={styles.feature_description}>{feature.text}</span>
           </div>
@@ -144,16 +124,18 @@ const Features = () => {
   };
 
   const getfeatures = () => {
-    return featureList_mob.map((item, index) => {
+    return featureList.map((item, index) => {
       const isLeft = index % 2 === 0;
       return (
         <div key={index} className={`${styles.image_section__item} ${isLeft ? styles.leftItem : styles.rightItem}`}>
           <div className={styles.image_section__item_wrap}>
+            <Link href={`/${item.href}`}>
             <img
               src={`images/mob_features/${item.img}`}
               alt={item.text}
               className={styles.image_section__item_img}
             />
+            </Link>
             <span className={styles.image_section__item_title}>{item.text}</span>
           </div>
         </div>

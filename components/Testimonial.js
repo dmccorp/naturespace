@@ -7,24 +7,24 @@ import "slick-carousel/slick/slick-theme.css";
 const feedbacks = [
   {
     id: 1,
-    name: "Jennifer John",
+    name: "Athena Hermit",
     comments:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even sl",
-    avatar: "feedback/JenniferJohn.png",
+      "Really overwhelmed by the quality of the work.",
+    avatar: "feedback/athena.png",
   },
   {
     id: 2,
-    name: "Jennifer John",
+    name: "Nihas Nizar",
     comments:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffere",
-    avatar: "feedback/JenniferJohn.png",
+      "My balcony was never the same before. It feels totally different with green lushy wall garden.",
+    avatar: "feedback/nihas.png",
   },
   {
     id: 3,
-    name: "Jennifer John",
+    name: "Shibin Arakkan",
     comments:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffere",
-    avatar: "feedback/JenniferJohn.png",
+      "Really loved the indoor garden, it fells like living in a forest with this beautiful waterfall and gardens.",
+    avatar: "feedback/shibin.png",
   },
 ];
 
