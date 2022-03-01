@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import styles from "../styles/Hero3D.module.scss";
 export default ()=> {
     const [progress, updateProgress] = useState(0);
