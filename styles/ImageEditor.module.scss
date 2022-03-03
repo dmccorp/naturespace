@@ -36,6 +36,11 @@
     text-align: left;
     margin: 0;
     margin-bottom: 27px;
+
+    @media (max-width: 767px){
+        font-size: 33px;
+        line-height: 63px;
+    }
 }
 
 .header__stroke{
