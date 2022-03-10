@@ -121,7 +121,7 @@ const Footer = () => {
             </Link>
           </div>
           <span className={styles.content__middle_email}>
-           naturespaceorg@gmail.com
+           contact@naturespace.ae
           </span>
         </div>
         <div className={styles.content__right}>

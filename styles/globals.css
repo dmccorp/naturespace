@@ -53,4 +53,11 @@ body::-webkit-scrollbar-thumb {
 
 .ReactModal__Overlay{
   background-color: rgba(39, 38, 38, 0.548) !important;
+  z-index: 2;
+}
+
+@media (max-width: 767px) {
+  .ReactModal__Content{
+    max-width: 80%;
+  }
 }

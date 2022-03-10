@@ -171,3 +171,10 @@
   margin: auto;
   margin-bottom: 23px;
 }
+
+@media (max-width: 767px) {
+  .modalMessage {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
